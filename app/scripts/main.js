@@ -83,6 +83,7 @@ $(function() {
 
   $('#search-button').click(function() {
     $('#search-form').toggle();
+    $('#search').focus();
   });
 
   $('#search-reset').click(function() {
