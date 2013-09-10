@@ -14,11 +14,13 @@
     <section role="region">
       <header>
         <menu type="toolbar">
+          <input id="search" type="search"/>
           <a href="#"><span class="icon action-icon search">Search</span></a>
           <a href="#"><span class="icon media-icon camera">Camera</span></a>
         </menu>
         <h1>FxOS Weather</h1>
       </header>
+      <progress id="spinner" class="pack-activity light" value="0" max="100" style="display: none;"></progress>
       <article class="content scrollable header">
         <ul id='weather-list'>
         </ul>

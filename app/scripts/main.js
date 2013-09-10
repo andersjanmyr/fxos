@@ -32,9 +32,40 @@ $(function() {
     });
     return frag;
   }
+
+  function displayWeatherList(list) {
+    $('#weather-list').empty().append(weatherList(list));
+  }
+
+
+  var debounce = (function(){
+    var timer = 0;
+    var timeout = 500;
+    return function(callback){
+      clearTimeout (timer);
+      timer = setTimeout(callback, timeout);
+    };
+  })();
+
+  $.ajaxSetup({
+    beforeSend: function() { $('#spinner').show(); },
+    complete: function() { $('#spinner').hide(); },
+  });
+
   window.Gps.position(function(pos) {
     window.weatherApi.getWeather(pos, function(list) {
-      $('#weather-list').empty().append(weatherList(list));
+      displayWeatherList(list);
     });
   });
+
+  $('#search').keyup(function() {
+    debounce(function() {
+      var val = $('#search').val();
+      if (val.length > 2)
+        window.weatherApi.getWeatherByName(val, function(list) {
+          displayWeatherList(list);
+        });
+    });
+  });
+
 });
