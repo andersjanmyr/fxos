@@ -83,6 +83,18 @@ $(function() {
     });
   });
 
+  $('#camera-button').click(function() {
+    $('#camera').click();
+  });
+
+  $('#camera').on('change', function (event) {
+    var files = event.target.files;
+    if (files && files.length > 0) {
+      var file = files[0];
+      console.log('Got file', file);
+    }
+  });
+
   $('#weather-list').on('click', '.weather-item', function() {
     var visible = $(this).find('.details').is(':visible');
     $('#weather-list .details').hide();

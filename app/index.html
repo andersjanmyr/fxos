@@ -3,7 +3,6 @@
 <head>
   <title>FxOS Weather</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="/styles/main.css" rel="stylesheet" type="text/css">
   <script src="/components/jquery/jquery.js"></script>
   <script defer src="/scripts/main.js"></script>
@@ -16,7 +15,7 @@
       <header>
         <menu type="toolbar">
           <a id="search-button" href="#"><span class="icon action-icon search">Search</span></a>
-          <a href="#"><span class="icon media-icon camera">Camera</span></a>
+          <a id="camera-button" href="#"><span class="icon media-icon camera">Camera</span></a>
         </menu>
         <h1>FxOS Weather</h1>
       </header>
@@ -27,6 +26,7 @@
           <button id="search-reset" type="reset">Clear</button>
         </p>
       </form>
+      <input id="camera" accept="image/*" type="file" style='display: none;'>
       <article class="content scrollable">
         <ul id="weather-list">
         </ul>
