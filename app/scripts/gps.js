@@ -4,6 +4,7 @@ window.Gps = (function() {
   function toQuery() {
     return 'lat=' + this.latitude + '&lon=' + this.longitude;
   }
+
   function position(callback) {
     navigator.geolocation.getCurrentPosition(function(pos) {
       callback({

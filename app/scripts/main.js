@@ -66,6 +66,10 @@ $(function() {
     });
   });
 
+  $('#search-button').click(function() {
+    $('#search-form').toggle();
+  });
+
   $('#search').keyup(function() {
     debounce(function() {
       var val = $('#search').val();
