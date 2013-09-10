@@ -9,7 +9,7 @@
   <script defer src="/scripts/gps.js"></script>
   <script defer src="/scripts/weatherApi.js"></script>
 </head>
-<body>
+<body role="application">
   <section id="toolbars" data-position="right">
     <section role="region">
       <header>
@@ -20,7 +20,8 @@
         <h1>FxOS Weather</h1>
       </header>
       <article class="content scrollable header">
-        
+        <ul id='weather-list'>
+        </ul>
       </article>
     </section>
   </section>
