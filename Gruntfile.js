@@ -72,7 +72,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          port: 9002,
+          port: 9006,
           middleware: function (connect) {
             return [
               mountFolder(connect, '.tmp'),
@@ -88,7 +88,7 @@ module.exports = function (grunt) {
       all: {
         options: {
           run: true,
-          urls: ['http://0.0.0.0:9002/index.html'],
+          urls: ['http://0.0.0.0:9006/index.html'],
           bail: true,
           reporter: 'Spec'
         }

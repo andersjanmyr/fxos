@@ -3,7 +3,7 @@ window.Gps = (function() {
 
   function position(callback) {
     navigator.geolocation.getCurrentPosition(function(pos) {
-      callback({latitude: pos.coords.latitude, longitude: position.coords.longitude});
+      callback({latitude: pos.coords.latitude, longitude: pos.coords.longitude });
     });
   }
 
