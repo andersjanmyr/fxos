@@ -9,20 +9,18 @@
   <script defer src="/scripts/gps.js"></script>
   <script defer src="/scripts/weatherApi.js"></script>
 </head>
-<body role="application">
+<body>
   <section id="toolbars" data-position="right">
     <section role="region">
-      <header class="fixed">
-        <a id="btn-toolbars-back" href="#"><span class="icon icon-back">back</span></a>
+      <header>
+        <menu type="toolbar">
+          <a href="#"><span class="icon action-icon search">Search</span></a>
+          <a href="#"><span class="icon media-icon camera">Camera</span></a>
+        </menu>
         <h1>FxOS Weather</h1>
       </header>
       <article class="content scrollable header">
-        <div role="toolbar">
-          <ul>
-            <li><button class="action-icon search">Search</button></li>
-            <li><button class="media-icon camera">Camera</button></li>
-          </ul>
-        </div>
+        
       </article>
     </section>
   </section>
