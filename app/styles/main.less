@@ -38,10 +38,10 @@
   margin: 2rem 0 0;
 }
 .weather-item {
-  background: linear-gradient(to right, #ededed 0%, #dedede 100%);
-  border: 1px solid #ccc;
+  background: linear-gradient(to right, rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.18) 100%);
   border-radius: 5px;
   margin: 0 0 1rem;
+  overflow: hidden;
   padding: 1rem;
   position: relative;
 }
@@ -55,15 +55,20 @@
 }
 .weather-item .weather {
   background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 6rem;
-  width: 6rem;
-  padding-top: 6.5rem;
+  background-position: 50% 0;
+  background-size: 5rem;
+  width: 8rem;
+  padding-top: 4.5rem;
   position: absolute;
   top: 1rem;
+  font-size: 1.5rem;
   right: 1rem;
+  text-align: center;
 }
 
-.weather {
-  background-image: url("../icons/weather/WeatherIcons_0016_17.png");
+.weather.clouds {
+  background-image: url("../icons/weather/WeatherIcons_0015_16.png");
+}
+.weather.clear {
+  background-image: url("../icons/weather/WeatherIcons_0019_20.png");
 }
