@@ -75,12 +75,6 @@ $(function() {
     complete: function() { $('#spinner').hide(); },
   });
 
-  window.Gps.position(function(pos) {
-    window.weatherApi.getWeather(pos, function(list) {
-      displayWeatherList(list);
-    });
-  });
-
   $('#search-button').click(function() {
     $('#search-form').toggle();
     $('#search').focus();
@@ -139,4 +133,20 @@ $(function() {
     window.Persistence.save('names', uniqueNames);
     return false;
   });
+
+  window.Gps.position(function(pos) {
+    var byPos = window.weatherApi.getByLocation(pos);
+    var names = window.Persistence.load('names', []);
+    var favorites = names.map(function(name) {
+      return window.weatherApi.getByName(name);
+    });
+    favorites.unshift(byPos);
+    console.log(favorites);
+    $.when.apply(window, favorites).then(function(results) {
+      console.log(results);
+      displayWeatherList(results);
+    });
+  });
+
+
 });

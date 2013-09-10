@@ -1,7 +1,8 @@
 (function (){
   'use strict';
 
-  var api = 'http://api.openweathermap.org/data/2.5/find?mode=json&type=like&';
+  var findApi = 'http://api.openweathermap.org/data/2.5/find?mode=json&type=like&';
+  var getApi = 'http://api.openweathermap.org/data/2.5/weather?';
 
   function error(data) {
     console.error('error', data);
@@ -29,12 +30,12 @@
       }
   }
 
-  function callApi(query, callback) {
+  function callApi(api, query, callback) {
     function success(resp) {
-      callback(resp.list.map(toItem));
+      if (callback) callback(resp.list.map(toItem));
     }
     var url = api + query;
-    jQuery.ajax({
+    return jQuery.ajax({
       url: url,
       dataType: 'jsonp',
       success: success,
@@ -43,11 +44,17 @@
 
 
   window.weatherApi = {
-    getWeather: function (location, callback) {
-      callApi(location, callback);
+    findByLocation: function (location, callback) {
+      return callApi(findApi, location, callback);
     },
-    getWeatherByName: function(name, callback) {
-      callApi('q=' + name, callback);
+    getByLocation: function (location, callback) {
+      return callApi(getApi, location, callback);
+    },
+    findByName: function(name, callback) {
+      return callApi(findApi, 'q=' + name, callback);
+    },
+    getByName: function(name, callback) {
+      return callApi(getApi, 'q=' + name, callback);
     }
   };
 
