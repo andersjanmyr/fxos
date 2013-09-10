@@ -10,14 +10,22 @@
   <script defer src="/scripts/weatherApi.js"></script>
 </head>
 <body role="application">
-  <h1>FxOS Weather</h1>
-  <div role="toolbar">
-    <ul>
-      <li><input class="pack-icon-mark"/></button></li>
-      <li><button class="pack-icon-move">Search</button></li>
-      <li><button class="pack-icon-share">Camera</button></li>
-    </ul>
-  </div>
+  <section id="toolbars" data-position="right">
+    <section role="region">
+      <header class="fixed">
+        <a id="btn-toolbars-back" href="#"><span class="icon icon-back">back</span></a>
+        <h1>FxOS Weather</h1>
+      </header>
+      <article class="content scrollable header">
+        <div role="toolbar">
+          <ul>
+            <li><button class="action-icon search">Search</button></li>
+            <li><button class="media-icon camera">Camera</button></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </section>
 </body>
 <div id="demo">
 </div>
