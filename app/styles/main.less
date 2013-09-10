@@ -32,31 +32,38 @@
 @import "cross_browser.css";
 
 /**
- * Weather list
- */
+* Weather list
+*/
 #weather-list {
   margin: 2rem 0 0;
 }
 .weather-item {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 0 0 1rem;
-    padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #ededed 0%, #dedede 100%);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  position: relative;
 }
 .weather-item .name {
-  font-size: 2rem;
-  float: left;
-}
-.weather-item .temp,
-.weather-item .weather,
-.weather-item .weather-details {
-  font-size: 1.7rem;
-}
-.weather-item .weather,
-.weather-item .weather-details {
-  clear: both;
+  font-size: 2.4rem;
 }
 .weather-item .temp {
-  float: right;
-  font-size: 3rem;
+  clear: both;
+  font-size: 3.5rem;
+  margin: 1rem 0;
+}
+.weather-item .weather {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 6rem;
+  width: 6rem;
+  padding-top: 6.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.weather {
+  background-image: url("../icons/weather/WeatherIcons_0016_17.png");
 }
