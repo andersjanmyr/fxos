@@ -39,8 +39,11 @@
 }
 .weather-item {
   background: linear-gradient(to right, rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.18) 100%);
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.18) 100%);
   border-radius: 5px;
+  color: #444;
   margin: 0 0 1rem;
+  min-height: 8rem;
   overflow: hidden;
   padding: 1rem;
   position: relative;
@@ -56,8 +59,11 @@
 .weather-item .weather {
   background-repeat: no-repeat;
   background-position: 50% 0;
-  background-size: 5rem;
-  width: 8rem;
+  background-size: auto 4rem;
+  color: #fff;
+  line-height: 1.1;
+  text-shadow: 0 0 2px #000;
+  width: 9rem;
   padding-top: 4.5rem;
   position: absolute;
   top: 1rem;
@@ -71,6 +77,9 @@
 }
 .weather.clear {
   background-image: url("../icons/weather/WeatherIcons_0019_20.png");
+}
+.weather.rain {
+  background-image: url("../icons/weather/WeatherIcons_0012_13.png");
 }
 .weather.mist {
   background-image: url("../icons/weather/WeatherIcons_0036_37.png");
