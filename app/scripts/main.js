@@ -88,7 +88,7 @@ $(function() {
     debounce(function() {
       var val = $('#search').val();
       if (val.length > 2)
-        window.weatherApi.getWeatherByName(val, function(list) {
+        window.weatherApi.findByName(val, function(list) {
           displayWeatherList(list);
         });
     });
@@ -141,10 +141,11 @@ $(function() {
       return window.weatherApi.getByName(name);
     });
     favorites.unshift(byPos);
-    console.log(favorites);
-    $.when.apply(window, favorites).then(function(results) {
-      console.log(results);
-      displayWeatherList(results);
+    $.when.apply(window, favorites).then(function() {
+      var args = Array.prototype.slice.apply(arguments);
+      var list = args.map(function(arr) { return weatherApi.toItem(arr[0]); });
+      console.log(list);
+      displayWeatherList(list);
     });
   });
 

@@ -55,7 +55,8 @@
     },
     getByName: function(name, callback) {
       return callApi(getApi, 'q=' + name, callback);
-    }
+    },
+    toItem: toItem
   };
 
 })();
