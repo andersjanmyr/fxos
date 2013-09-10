@@ -6,8 +6,9 @@ window.Persistence = (function() {
     localStorage.setItem(name, json);
   }
 
-  function load(name) {
+  function load(name, defaultData) {
     var json = localStorage.getItem(name);
+    if (!json) return defaultData;
     return JSON.parse(json);
   }
 

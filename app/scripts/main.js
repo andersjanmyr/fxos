@@ -15,9 +15,22 @@ $(function() {
     return e;
   }
 
+  function packSwitch(selected) {
+    console.log(selected);
+    var label = document.createElement('label');
+    label.className = 'pack-switch save-button';
+    var cb = document.createElement('input');
+    cb.setAttribute('type', 'checkbox');
+    cb.checked = selected;
+    label.appendChild(cb);
+    label.appendChild(document.createElement('span'));
+    return label;
+  }
+
   function weatherItem(item) {
     console.log(item);
-    return el('li', 'weather-item', [
+    var names = window.Persistence.load('names', []);
+    var element = el('li', 'weather-item', [
       el('div', 'name', item.name),
       el('div', 'temp', item.temp),
       el('div', 'weather ' + item.klass, item.desc),
@@ -26,9 +39,12 @@ $(function() {
         el('div', 'pressure', 'Pressure: ' + item.pressure),
         el('div', 'max', 'Max: ' + item.max),
         el('div', 'min', 'Min: ' + item.min),
-        el('div', 'wind', item.wind)
+        el('div', 'wind', item.wind),
+        packSwitch(names.indexOf(item.name) !== -1)
       ])
     ]);
+    element.dataset.name = item.name;
+    return element;
   }
 
   function weatherList(list) {
@@ -101,4 +117,25 @@ $(function() {
     $(this).find('.details').toggle(!visible);
   });
 
+  function remove(array, el) {
+    var index = array.indexOf(el);
+    array.splice(index, 1);
+  }
+
+  $('#weather-list').on('click', '.save-button', function() {
+    var cb = $(this).find('input');
+    var checked = !cb.prop('checked');
+    cb.prop('checked', checked);
+    var name = $(this).parents('.weather-item').data('name');
+    var names = window.Persistence.load('names', []);
+    if (checked)
+      names.push(name);
+    else
+      remove(names, name);
+    var uniqueNames = names.filter(function(elem, pos) {
+      return elem && names.indexOf(elem) === pos;
+    });
+    window.Persistence.save('names', uniqueNames);
+    return false;
+  });
 });
