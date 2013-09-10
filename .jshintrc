@@ -22,6 +22,8 @@
     "require",
     "it",
     "chai",
-    "describe"
+    "describe",
+    "jQuery",
+    "$"
   ]
 }
