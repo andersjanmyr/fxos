@@ -15,21 +15,19 @@ $(function() {
     return e;
   }
 
-  function toCelsius(temp) {
-    return parseInt(temp - 273, 10) + '℃';
-  }
-
-  function capitalize(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
   function weatherItem(item) {
     console.log(item);
     return el('li', 'weather-item', [
       el('div', 'name', item.name),
-      el('div', 'temp', toCelsius(item.main.temp)),
-      el('div', 'weather ' + item.weather[0].main.toLowerCase(),
-         capitalize(item.weather[0].description)),
+      el('div', 'temp', item.temp),
+      el('div', 'weather ' + item.klass, item.desc),
+      el('div', 'details', [
+        el('div', 'humidity', item.humidity),
+        el('div', 'pressure', item.pressure),
+        el('div', 'max', item.max),
+        el('div', 'min', item.min),
+        el('div', 'wind', item.wind)
+      ])
     ]);
   }
 
@@ -43,6 +41,7 @@ $(function() {
 
   function displayWeatherList(list) {
     $('#weather-list').empty().append(weatherList(list));
+    $('#weather-list .details').hide();
   }
 
 
@@ -70,6 +69,10 @@ $(function() {
     $('#search-form').toggle();
   });
 
+  $('#search-reset').click(function() {
+    $('#search').val('');
+  });
+
   $('#search').keyup(function() {
     debounce(function() {
       var val = $('#search').val();
@@ -78,6 +81,11 @@ $(function() {
           displayWeatherList(list);
         });
     });
+  });
+
+  $('#weather-list').on('click', '.weather-item', function() {
+    $('#weather-list .details').hide();
+    $(this).find('.details').show();
   });
 
 });
