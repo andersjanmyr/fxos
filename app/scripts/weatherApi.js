@@ -7,14 +7,25 @@
     console.error('error', data);
   }
 
+  function callApi(query, callback) {
+    function success(resp) {
+      callback(resp.list);
+    }
+    var url = api + query;
+    jQuery.ajax({
+      url: url,
+      dataType: 'jsonp',
+      success: success,
+      error: error});
+  }
+
+
   window.weatherApi = {
     getWeather: function (location, callback) {
-      var url = api + location.toString();
-      jQuery.ajax({url: url, dataType: 'jsonp', success: callback, error: error});
+      callApi(location, callback);
     },
     getWeatherByName: function(name, callback) {
-      var url = api + 'q=' + name ;
-      jQuery.ajax({url: url, dataType: 'jsonp', success: callback, error: error});
+      callApi('q=' + name, callback);
     }
   };
 
