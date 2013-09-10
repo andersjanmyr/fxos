@@ -22,10 +22,10 @@ $(function() {
       el('div', 'temp', item.temp),
       el('div', 'weather ' + item.klass, item.desc),
       el('div', 'details', [
-        el('div', 'humidity', item.humidity),
-        el('div', 'pressure', item.pressure),
-        el('div', 'max', item.max),
-        el('div', 'min', item.min),
+        el('div', 'humidity', 'Humidity: ' + item.humidity),
+        el('div', 'pressure', 'Pressure: ' + item.pressure),
+        el('div', 'max', 'Max: ' + item.max),
+        el('div', 'min', 'Min: ' + item.min),
         el('div', 'wind', item.wind)
       ])
     ]);
@@ -84,8 +84,9 @@ $(function() {
   });
 
   $('#weather-list').on('click', '.weather-item', function() {
+    var visible = $(this).find('.details').is(':visible');
     $('#weather-list .details').hide();
-    $(this).find('.details').show();
+    $(this).find('.details').toggle(!visible);
   });
 
 });

@@ -17,15 +17,15 @@
 
   function toItem(item) {
       return {
-          name: item.name,
+          name: item.name || item.sys.country,
           temp: toCelsius(item.main.temp),
           klass: item.weather[0].main.toLowerCase(),
           desc: capitalize(item.weather[0].description),
-          humidity: item.main.humidity,
-          pressure: item.main.pressure,
-          max: item.main.temp_max,
-          min: item.main.temp_min,
-          wind: item.wind.speed
+          humidity: parseInt(item.main.humidity, 10) + ' %',
+          pressure: item.main.pressure + ' mBar',
+          max: toCelsius(item.main.temp_max),
+          min: toCelsius(item.main.temp_min),
+          wind: parseInt(item.wind.speed, 10) + ' m/s'
       }
   }
 
