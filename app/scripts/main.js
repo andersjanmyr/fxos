@@ -15,11 +15,15 @@ $(function() {
     return e;
   }
 
+  function toCelsius(temp) {
+    return parseInt(temp - 273, 10) + '℃';
+  }
+
   function weatherItem(item) {
     console.log(item);
     return el('li', 'weather-item', [
       el('div', 'name', item.name),
-      el('div', 'temp', item.main.temp),
+      el('div', 'temp', toCelsius(item.main.temp)),
       el('div', 'weather', item.weather[0].main),
       el('div', 'weather-details', item.weather[0].description)
     ]);
