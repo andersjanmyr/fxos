@@ -184,7 +184,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', 'Launch tests in shell with PhantomJS', [
     'jshint',
     'clean:server',
-    'cssmin',
     'less:dev',
     'connect:test',
     'mocha'
@@ -203,7 +202,6 @@ module.exports = function (grunt) {
       grunt.task.run([
         'jshint',
         'clean:server',
-        'cssmin',
         'less:dev',
         'connect:server',
         'watch'
