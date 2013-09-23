@@ -1,15 +1,14 @@
 {
   "name": "FxOS Weather",
   "description": "A Firefox OS Weather App",
-  "launch_path": "/index.html",
   "icons": {
     "60": "/icons/60x60.png",
     "120": "/icons/120x120.png",
     "128": "/icons/128x128.png"
   },
   "developer": {
-    "name": "andersjanmyr",
-    "url": "https://github.com/andersjanmyr/fxos"
+    "name": "Anders Janmyr",
+    "url": "https://github.com/andersjanmyr/fxos-weather"
   },
   "default_locale": "en"
 }

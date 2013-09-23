@@ -11,6 +11,6 @@
 
 ## Try it out directly
 
-* https://andersjanmyr.github.com/fxos-weather
+* https://andersjanmyr.github.com/fxos-weather/app
 
 
