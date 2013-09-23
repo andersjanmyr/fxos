@@ -220,7 +220,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', 'Default task', [
-    'jshint'
+    'jshint', 'less:dev'
   ]);
 };
 
