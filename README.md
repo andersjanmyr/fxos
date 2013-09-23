@@ -9,4 +9,8 @@
 * Start server `npm start`
 * Open browser at http://localhost:3000
 
+## Try it out directly
+
+* https://andersjanmyr.github.com/fxos-weather
+
 
