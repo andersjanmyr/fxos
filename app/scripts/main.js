@@ -137,6 +137,7 @@ $(function() {
   window.Gps.position(function(pos) {
     var byPos = window.weatherApi.getByLocation(pos);
     var names = window.Persistence.load('names', []);
+    if (names.length === 0) names.push('Skåne');
     var favorites = names.map(function(name) {
       return window.weatherApi.getByName(name);
     });
