@@ -143,7 +143,7 @@ $(function() {
     favorites.unshift(byPos);
     $.when.apply(window, favorites).then(function() {
       var args = Array.prototype.slice.apply(arguments);
-      var list = args.map(function(arr) { return weatherApi.toItem(arr[0]); });
+      var list = args.map(function(arr) { return window.weatherApi.toItem(arr[0]); });
       console.log(list);
       displayWeatherList(list);
     });

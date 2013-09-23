@@ -13,21 +13,22 @@
   }
 
   function capitalize(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   function toItem(item) {
-      return {
-          name: item.name || item.sys.country,
-          temp: toCelsius(item.main.temp),
-          klass: item.weather[0].main.toLowerCase(),
-          desc: capitalize(item.weather[0].description),
-          humidity: parseInt(item.main.humidity, 10) + ' %',
-          pressure: item.main.pressure + ' mBar',
-          max: toCelsius(item.main.temp_max),
-          min: toCelsius(item.main.temp_min),
-          wind: parseInt(item.wind.speed, 10) + ' m/s'
-      }
+    // jshint camelcase: false
+    return {
+      name: item.name || item.sys.country,
+      temp: toCelsius(item.main.temp),
+      klass: item.weather[0].main.toLowerCase(),
+      desc: capitalize(item.weather[0].description),
+      humidity: parseInt(item.main.humidity, 10) + ' %',
+      pressure: item.main.pressure + ' mBar',
+      max: toCelsius(item.main.temp_max),
+      min: toCelsius(item.main.temp_min),
+      wind: parseInt(item.wind.speed, 10) + ' m/s'
+    };
   }
 
   function callApi(api, query, callback) {
@@ -39,7 +40,8 @@
       url: url,
       dataType: 'jsonp',
       success: success,
-      error: error});
+      error: error
+    });
   }
 
 

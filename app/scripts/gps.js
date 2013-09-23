@@ -2,6 +2,7 @@ window.Gps = (function() {
   'use strict';
 
   function toQuery() {
+    // jshint validthis:true
     return 'lat=' + this.latitude + '&lon=' + this.longitude;
   }
 
