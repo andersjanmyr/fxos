@@ -4,17 +4,17 @@
   <title>FxOS Weather</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href="/styles/main.css" rel="stylesheet" type="text/css">
-  <script src="/components/jquery/jquery.js"></script>
-  <script defer src="/scripts/main.js"></script>
-  <script defer src="/scripts/gps.js"></script>
-  <script defer src="/scripts/weatherApi.js"></script>
-  <script defer src="/scripts/persistence.js"></script>
+  <link href="./styles/main.css" rel="stylesheet" type="text/css">
+  <script src="./components/jquery/jquery.js"></script>
+  <script defer src="./scripts/main.js"></script>
+  <script defer src="./scripts/gps.js"></script>
+  <script defer src="./scripts/weatherApi.js"></script>
+  <script defer src="./scripts/persistence.js"></script>
 </head>
 <body role="application">
-  
+
   <section role="region">
-    
+
     <header>
       <menu type="toolbar">
         <a id="search-button" href="#"><span class="icon action-icon search">Search</span></a>
@@ -23,7 +23,7 @@
       <h1>FxOS Weather</h1>
     </header>
     <progress id="spinner" class="pack-activity light" value="0" max="100" style="display: none;"></progress>
-  
+
     <form id="search-form" role="search" style="display: none;">
       <p>
         <input id="search" placeholder="Search..." required="" type="text">
@@ -31,18 +31,18 @@
       </p>
     </form>
     <!-- /search-form -->
-  
+
     <input id="camera" accept="image/*" type="file" style='display: none;'>
     <article class="content scrollable">
-      
+
       <ul id="weather-list">
       </ul>
       <!-- /weather-list -->
     </article>
     <!-- /content -->
-    
+
   </section>
   <!-- /region -->
-  
+
 </body>
 </html>
