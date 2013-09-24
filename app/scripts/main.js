@@ -144,7 +144,9 @@ $(function() {
     favorites.unshift(byPos);
     $.when.apply(window, favorites).then(function() {
       var args = Array.prototype.slice.apply(arguments);
-      var list = args.map(function(arr) { return window.weatherApi.toItem(arr[0]); });
+      var list = args.map(function(arr) {
+        return window.weatherApi.toItem(arr[0]);
+      }).filter(function(item){ return item; });
       console.log(list);
       displayWeatherList(list);
     });

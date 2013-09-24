@@ -18,6 +18,7 @@
 
   function toItem(item) {
     // jshint camelcase: false
+    if (item.com && item.cod !== 200) return null;
     return {
       name: item.name || item.sys.country,
       temp: toCelsius(item.main.temp),
