@@ -1,7 +1,7 @@
 {
   "name": "FxOS Weather",
   "description": "A Firefox OS Weather App",
-  "launch_path": "./index.html",
+  "launch_path": "/fxos-weather/app/",
   "icons": {
     "60": "/icons/60x60.png",
     "120": "/icons/120x120.png",
