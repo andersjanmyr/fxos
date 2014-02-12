@@ -134,14 +134,17 @@ $(function() {
     return false;
   });
 
-  window.Gps.position(function(pos) {
-    var byPos = window.weatherApi.getByLocation(pos);
+  function updateWeather(pos) {
+    var favorites = [];
+    if (pos) {
+      var byPos = window.weatherApi.getByLocation(pos);
+      favorites.unshift(byPos);
+    }
     var names = window.Persistence.load('names', []);
     if (names.length === 0) names.push('Skåne');
-    var favorites = names.map(function(name) {
-      return window.weatherApi.getByName(name);
+    names.forEach(function(name) {
+      favorites.push(window.weatherApi.getByName(name));
     });
-    favorites.unshift(byPos);
     $.when.apply(window, favorites).then(function() {
       var args = Array.prototype.slice.apply(arguments);
       var list = args.map(function(arr) {
@@ -150,7 +153,9 @@ $(function() {
       console.log(list);
       displayWeatherList(list);
     });
-  });
+  }
 
+  window.Gps.position(updateWeather);
+  updateWeather();
 
 });
